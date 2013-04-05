@@ -8,4 +8,6 @@ doc/api
 doc/app
 *.swp
 * ̃
+.redcar*
+redcar*
 .DS_Store
