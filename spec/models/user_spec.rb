@@ -21,7 +21,7 @@ describe User do
 	it { should respond_to(:password_confirmation) }
 	it { should respond_to(:password) }
 	it { should respond_to(:authenticate) }
-
+	it { should respond_to(:remember_token)}
 
 	it { should be_valid }
 
@@ -99,5 +99,15 @@ describe User do
 		before { @user.password = "a" * 5}
 		it { should_not be_valid}
 	end
+
+	describe "remember token" do
+		before { @user.save }
+		its(:remember_token) { should_not be_blank }
+	end
+
+	describe "after saving user" do
+		it { should have_link('Sign out') }
+	end
+
 end
 
